@@ -524,6 +524,8 @@ Try to add test case for other user scenario
 
 [React Testing Library 的一些實用的小技巧](https://ithelp.ithome.com.tw/articles/10281691)
 
+[javascript-testing-best-practices](https://github.com/yubinTW/javascript-testing-best-practices/blob/master/readme-zh-TW.md)
+
 ---
 
 end
