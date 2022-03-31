@@ -287,7 +287,7 @@ expect(myValue).toBeGreaterThan(5) // better to read
         
             <section >
                 <h2>No catch, expect them</h2>
-<pre><code class="language-typescript=">it(' should return 200 status code when call /api/todos API', async() =&gt; {
+<pre><code class="language-typescript=">it('should return 200 status code when call /api/todos API', async() =&gt; {
     try {
         const response = await axios.get('/api/todos')
         expect(response.status).toBe(200)
@@ -333,7 +333,335 @@ expect(myValue).toBeGreaterThan(5) // better to read
             <h1>TestPyramid</h1>
 <p><img src="img/2022-03-31-23-47-28.png" alt=""></p>
 <p><a href="https://martinfowler.com/bliki/TestPyramid.html">https://martinfowler.com/bliki/TestPyramid.html</a></p>
-<p>–</p>
+
+            </section>
+    
+
+
+
+    
+    <section>
+        <section >
+            <h1>Priority</h1>
+
+            </section>
+        
+            <section >
+                <ol>
+<li>High value features</li>
+<li>Edge cases in high value features</li>
+<li>Things that are easy to break</li>
+<li>Basic React component testing
+<ul>
+<li>User interactions</li>
+<li>Conditional redering</li>
+<li>Utils / Hooks</li>
+</ul>
+</li>
+</ol>
+
+            </section>
+        
+
+    </section>
+    
+
+
+
+    
+    <section>
+        <section >
+            <h1>Jest</h1>
+<p>JavaScript testing framework</p>
+<p><a href="https://github.com/facebook/jest">https://github.com/facebook/jest</a></p>
+<p><a href="https://jestjs.io/">https://jestjs.io/</a></p>
+
+            </section>
+        
+            <section >
+                <h2>npm script</h2>
+<p>react use jest on default</p>
+<p><a href="https://create-react-app.dev/docs/running-tests/">https://create-react-app.dev/docs/running-tests/</a></p>
+<pre><code class="language-json">&quot;scripts&quot;: {
+  &quot;test&quot;: &quot;react-scripts test --coverage --watchAll=false&quot;,
+},
+</code></pre>
+<pre><code class="language-text">npm run test
+</code></pre>
+
+            </section>
+        
+            <section >
+                <h1>A Jest Test</h1>
+<pre><code class="language-typescript=">const expected = true
+const actual = false
+
+describe('my test suite01', () =&gt; {
+    test('it works', () =&gt; {
+        expect(actual).toBe(expected)
+    })
+})
+
+</code></pre>
+
+            </section>
+        
+            <section >
+                <p><img src="img/2022-04-01-00-47-50.png" alt=""></p>
+
+            </section>
+        
+            <section >
+                <pre><code class="language-typescript">
+describe('API test', () =&gt; {    
+    it('should successfully get a pong string', () =&gt; {
+        // Some testing condition
+    })
+    it('test B', () =&gt; {})
+    it('test C', () =&gt; {})
+    it('test D', () =&gt; {})
+})
+</code></pre>
+<p><img src="img/2022-04-01-00-50-41.png" alt=""></p>
+
+            </section>
+        
+            <section >
+                <h2>Expect</h2>
+<p><a href="https://jestjs.io/docs/expect">https://jestjs.io/docs/expect</a></p>
+<pre><code class="language-typescript">expect(1 + 2).toBeLessThan(4)
+expect(1 + 2).toBeLessThanOrEqual(3)
+expect(['A', 'B', 'C']).toContain('B')
+expect(1 + 2).not.toBe(4)
+</code></pre>
+
+            </section>
+        
+            <section >
+                <h2>Synchronous</h2>
+<pre><code class="language-typescript">describe('Math test', () =&gt; {
+    it('1 + 2 should be 3', () =&gt; {
+        const a = 1
+        const b = 2
+        expect(a + b).toBe(3)
+    })
+})
+</code></pre>
+
+            </section>
+        
+            <section >
+                <h2>Asynchronous</h2>
+<pre><code class="language-typescript">// pong.ts
+async getPong(): Promise&lt;string&gt; {
+    return new Promise((resolve) =&gt; {
+        resolve('pong')
+    })
+}
+
+// pong.spec.ts
+describe('asynchronous test', () =&gt; {
+    it('get pong', async () =&gt; {
+        const result = await pong.getPong()
+        expect(result).toBe('pong')
+    })
+    it('still get pong', async () =&gt; {
+        await expect(pong.getPong()).resolves.toBe('pong')
+    })
+})
+</code></pre>
+
+            </section>
+        
+
+    </section>
+    
+
+
+
+    
+    <section>
+        <section >
+            <h1>Testing Library</h1>
+
+            </section>
+        
+            <section >
+                <h2>@testing-library/react</h2>
+<p><a href="https://github.com/testing-library/react-testing-library">https://github.com/testing-library/react-testing-library</a></p>
+<p>🐐 Simple and complete React DOM testing utilities that encourage good testing practices.</p>
+
+            </section>
+        
+            <section >
+                <h2>@testing-library/user-event</h2>
+<p><a href="https://github.com/testing-library/user-event">https://github.com/testing-library/user-event</a></p>
+<p>🐕 Simulate user events</p>
+
+            </section>
+        
+
+    </section>
+    
+
+
+
+    
+    <section>
+        <section >
+            <h1>Mirage</h1>
+
+            </section>
+        
+            <section >
+                <p>miragejs</p>
+<p><a href="https://github.com/miragejs/miragejs">https://github.com/miragejs/miragejs</a></p>
+<p>Mirage JS is an API mocking library that lets you build, test and share a complete working JavaScript application without having to rely on any backend services.</p>
+
+            </section>
+        
+
+    </section>
+    
+
+
+
+    
+    <section>
+        <section >
+            <h1>Demo project</h1>
+<p>for adding some test cases</p>
+<p><a href="https://github.com/yubinTW/todos">https://github.com/yubinTW/todos</a></p>
+
+            </section>
+        
+            <section >
+                <p><img src="img/2022-04-01-02-05-03.png" alt=""></p>
+
+            </section>
+        
+            <section >
+                <p>“My Todos” title should be show</p>
+<p>Add-button is disabled on default</p>
+
+            </section>
+        
+            <section >
+                <pre><code class="language-typescript=">import { render, screen, waitFor } from '@testing-library/react'
+// ...
+it('should show the title', () =&gt; {
+    render(&lt;App /&gt;)
+    const todoTitle = screen.getByText('My Todos')
+    expect(todoTitle).toBeInTheDocument()
+})
+</code></pre>
+
+            </section>
+        
+            <section >
+                <pre><code class="language-typescript=">test('Add button is disabled on default', async () =&gt; {
+    render(&lt;App /&gt;)
+    const addButton = await screen.findByText('Add Todo')
+    expect(addButton).toBeDisabled()
+})
+</code></pre>
+
+            </section>
+        
+            <section >
+                <p><img src="img/2022-04-01-02-06-23.png" alt=""></p>
+<p>When “Name” and “Description” input are not empty, add-button will be enabled</p>
+
+            </section>
+        
+            <section >
+                <pre><code class="language-typescript=">test('Add button is enabled when name and description are not empty', async () =&gt; {
+    render(&lt;App /&gt;)
+
+    const nameInput = await screen.findByTestId('name')
+    const descriptionInput = await screen.findByTestId('description')
+    await userEvent.type(nameInput, 'Prepare slide')
+    await userEvent.type(descriptionInput, 'slider for javascript testing')
+
+    const addButton = await screen.findByText('Add Todo')
+    expect(addButton).toBeEnabled()
+})
+</code></pre>
+
+            </section>
+        
+            <section >
+                <p><img src="img/2022-04-01-02-08-22.png" alt=""></p>
+<p>When click add-button, “Name” and “Description” input will be clear, and new todo record will appear</p>
+
+            </section>
+        
+            <section >
+                <pre><code class="language-typescript=">test('new todo will appearance, name and description input will be clear when click Add Todo button', async () =&gt; {
+    render(&lt;App /&gt;)
+
+    const nameInput = await screen.findByTestId('name')
+    const descriptionInput = await screen.findByTestId('description')
+    await userEvent.type(nameInput, 'Prepare slide')
+    await userEvent.type(descriptionInput, 'slider for javascript testing workshop')
+    const addButton = await screen.findByText('Add Todo')
+    await userEvent.click(addButton)
+    const newTodo = await screen.findByText('Prepare slide')
+
+    expect(nameInput).toHaveTextContent('')
+    expect(descriptionInput).toHaveTextContent('')
+    expect(newTodo).toBeInTheDocument()
+})
+</code></pre>
+
+            </section>
+        
+            <section >
+                <p><img src="img/2022-04-01-02-16-08.png" alt=""></p>
+<p>When click delete button of item0, item0 will disappear</p>
+
+            </section>
+        
+            <section >
+                <pre><code class="language-typescript=">it('should be disappear when user click delete button of a todo', async () =&gt; {
+    render(&lt;App /&gt;)
+
+    const deleteButtons = await screen.findAllByText('Delete')
+    await userEvent.click(deleteButtons[0])
+
+    await waitFor(() =&gt; {
+      const item0 = screen.queryByText('item0')
+      expect(item0).toBeNull()
+    })
+})
+</code></pre>
+
+            </section>
+        
+
+    </section>
+    
+
+
+
+    
+        <section >
+            
+            <h2>DIY</h2>
+<p>Try to add test case for other user scenario</p>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <h2>Reference</h2>
+<p><a href="https://testing-library.com/docs/queries/about">Testing-Library/CoreAPI/Queries</a></p>
+<p><a href="https://testing-library.com/docs/ecosystem-user-event/#typeelement-text-options">Testing-Library/user-event</a></p>
+<p><a href="https://ithelp.ithome.com.tw/articles/10281691">React Testing Library 的一些實用的小技巧</a></p>
 
             </section>
     
