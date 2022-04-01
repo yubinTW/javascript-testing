@@ -92,6 +92,20 @@ Automation
 
 --
 
+![](img/2022-04-01-08-24-14.png)
+
+--
+
+## Documentation
+
+how our code should work
+
+--
+
+![](img/2022-04-01-08-22-54.png)
+
+--
+
 How
 
 ---
@@ -230,6 +244,10 @@ it(' should return 200 status code when call /api/todos API', async() => {
 - Integration, multiple units work together
 - Unit, simgle function/component
 - Static, code typo or error
+
+--
+
+![](img/2022-04-01-08-24-53.png)
 
 ---
 
@@ -528,4 +546,4 @@ Try to add test case for other user scenario
 
 ---
 
-end
+Thx.
