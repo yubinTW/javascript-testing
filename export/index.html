@@ -544,6 +544,23 @@ describe('asynchronous test', () =&gt; {
 
             </section>
         
+            <section >
+                <p><a href="https://miragejs.com/tutorial/part-1/">Static GET Handler</a></p>
+<pre><code class="language-javascript">createServer({
+  routes() {
+    this.get(&quot;/api/reminders&quot;, () =&gt; ({
+      reminders: [
+        { id: 1, text: &quot;Walk the dog&quot; },
+        { id: 2, text: &quot;Take out the trash&quot; },
+        { id: 3, text: &quot;Work out&quot; },
+      ],
+    }))
+  },
+})
+</code></pre>
+
+            </section>
+        
 
     </section>
     
@@ -553,110 +570,35 @@ describe('asynchronous test', () =&gt; {
     
     <section>
         <section >
-            <h1>Demo project</h1>
-<p>for adding some test cases</p>
-<p><a href="https://github.com/yubinTW/todos">https://github.com/yubinTW/todos</a></p>
+            <h1>Cypress</h1>
 
             </section>
         
             <section >
-                <p><img src="img/2022-04-01-02-05-03.png" alt=""></p>
+                <p>Cypress</p>
+<p><a href="https://github.com/cypress-io/cypress">https://github.com/cypress-io/cypress</a></p>
+<p>Fast, easy and reliable testing for anything that runs in a browser.</p>
 
             </section>
         
             <section >
-                <p>“My Todos” title should be show</p>
-<p>Add-button is disabled on default</p>
+                <p><a href="https://docs.cypress.io/guides/end-to-end-testing/writing-your-first-end-to-end-test">Writing Your First E2E Test </a></p>
+<pre><code class="language-javascript">describe('My First Test', () =&gt; {
+  it('Gets, types and asserts', () =&gt; {
+    cy.visit('https://example.cypress.io')
 
-            </section>
-        
-            <section >
-                <pre><code class="language-typescript=">import { render, screen, waitFor } from '@testing-library/react'
-// ...
-it('should show the title', () =&gt; {
-    render(&lt;App /&gt;)
-    const todoTitle = screen.getByText('My Todos')
-    expect(todoTitle).toBeInTheDocument()
-})
-</code></pre>
+    cy.contains('type').click()
 
-            </section>
-        
-            <section >
-                <pre><code class="language-typescript=">test('Add button is disabled on default', async () =&gt; {
-    render(&lt;App /&gt;)
-    const addButton = await screen.findByText('Add Todo')
-    expect(addButton).toBeDisabled()
-})
-</code></pre>
+    // Should be on a new URL which
+    // includes '/commands/actions'
+    cy.url().should('include', '/commands/actions')
 
-            </section>
-        
-            <section >
-                <p><img src="img/2022-04-01-02-06-23.png" alt=""></p>
-<p>When “Name” and “Description” input are not empty, add-button will be enabled</p>
-
-            </section>
-        
-            <section >
-                <pre><code class="language-typescript=">test('Add button is enabled when name and description are not empty', async () =&gt; {
-    render(&lt;App /&gt;)
-
-    const nameInput = await screen.findByTestId('name')
-    const descriptionInput = await screen.findByTestId('description')
-    await userEvent.type(nameInput, 'Prepare slide')
-    await userEvent.type(descriptionInput, 'slider for javascript testing')
-
-    const addButton = await screen.findByText('Add Todo')
-    expect(addButton).toBeEnabled()
-})
-</code></pre>
-
-            </section>
-        
-            <section >
-                <p><img src="img/2022-04-01-02-08-22.png" alt=""></p>
-<p>When click add-button, “Name” and “Description” input will be clear, and new todo record will appear</p>
-
-            </section>
-        
-            <section >
-                <pre><code class="language-typescript=">test('new todo will appearance, name and description input will be clear when click Add Todo button', async () =&gt; {
-    render(&lt;App /&gt;)
-
-    const nameInput = await screen.findByTestId('name')
-    const descriptionInput = await screen.findByTestId('description')
-    await userEvent.type(nameInput, 'Prepare slide')
-    await userEvent.type(descriptionInput, 'slider for javascript testing workshop')
-    const addButton = await screen.findByText('Add Todo')
-    await userEvent.click(addButton)
-    const newTodo = await screen.findByText('Prepare slide')
-
-    expect(nameInput).toHaveTextContent('')
-    expect(descriptionInput).toHaveTextContent('')
-    expect(newTodo).toBeInTheDocument()
-})
-</code></pre>
-
-            </section>
-        
-            <section >
-                <p><img src="img/2022-04-01-02-16-08.png" alt=""></p>
-<p>When click delete button of item0, item0 will disappear</p>
-
-            </section>
-        
-            <section >
-                <pre><code class="language-typescript=">it('should be disappear when user click delete button of a todo', async () =&gt; {
-    render(&lt;App /&gt;)
-
-    const deleteButtons = await screen.findAllByText('Delete')
-    await userEvent.click(deleteButtons[0])
-
-    await waitFor(() =&gt; {
-      const item0 = screen.queryByText('item0')
-      expect(item0).toBeNull()
-    })
+    // Get an input, type into it and verify
+    // that the value has been updated
+    cy.get('.action-email')
+      .type('fake@email.com')
+      .should('have.value', 'fake@email.com')
+  })
 })
 </code></pre>
 
@@ -664,31 +606,6 @@ it('should show the title', () =&gt; {
         
 
     </section>
-    
-
-
-
-    
-        <section >
-            
-            <h2>DIY</h2>
-<p>Try to add test case for other user scenario</p>
-
-            </section>
-    
-
-
-
-    
-        <section >
-            
-            <h2>Reference</h2>
-<p><a href="https://testing-library.com/docs/queries/about">Testing-Library/CoreAPI/Queries</a></p>
-<p><a href="https://testing-library.com/docs/ecosystem-user-event/#typeelement-text-options">Testing-Library/user-event</a></p>
-<p><a href="https://ithelp.ithome.com.tw/articles/10281691">React Testing Library 的一些實用的小技巧</a></p>
-<p><a href="https://github.com/yubinTW/javascript-testing-best-practices/blob/master/readme-zh-TW.md">javascript-testing-best-practices</a></p>
-
-            </section>
     
 
 
@@ -722,7 +639,13 @@ it('should show the title', () =&gt; {
   	<script src="libs/reveal.js/4.1.3/plugin/animate/plugin.js"></script>
   	<script src="libs/reveal.js/4.1.3/plugin/animate/svg.min.js"></script>
   
-  	 <!--	<script src="libs/reveal.js/4.1.3/plugin/anything/plugin.js"></script> -->
+  	<script src="libs/reveal.js/4.1.3/plugin/anything/plugin.js"></script>
+	  <script src="libs/reveal.js/4.1.3/plugin/anything/Chart.min.js"></script>
+	<script src="libs/reveal.js/4.1.3/plugin/anything/d3/d3.v3.min.js"></script>				
+	<script src="libs/reveal.js/4.1.3/plugin/anything/d3.patch.js"></script>			
+	<script src="libs/reveal.js/4.1.3/plugin/anything/d3/queue.v1.min.js"></script>		
+	<script src="libs/reveal.js/4.1.3/plugin/anything/d3/topojson.v1.min.js"></script>		
+	<script src="libs/reveal.js/4.1.3/plugin/anything/function-plot.js"></script>
 
  <!--	<script src="libs/reveal.js/4.1.3/plugin/audio-slideshow/plugin.js"></script>  -->
 <!--	<script src="libs/reveal.js/4.1.3/plugin/audio-slideshow/recorder.js"></script>-->
@@ -753,7 +676,7 @@ it('should show the title', () =&gt; {
 				RevealMarkdown, 
 				RevealMenu, 
 				RevealFullscreen,
-				//RevealAnything,
+				RevealAnything,
 				//RevealAudioSlideshow,
 				//RevealAudioRecorder,
 				RevealCustomControls, 
@@ -893,6 +816,21 @@ it('should show the title', () =&gt; {
 				// pass other options into `MathJax.Hub.Config()`
 				TeX: { Macros: { RR: "{\\bf R}" } }
 				},
+				anything: [ 
+				{
+		className: "plot",
+		defaults: {width:500, height: 500, grid:true},
+		initialize: (function(container, options){ options.target = "#"+container.id; functionPlot(options) })
+	 },
+	 {
+		className: "chart",  
+		initialize: (function(container, options){ container.chart = new Chart(container.getContext("2d"), options);  })
+	 },
+	 {
+		className: "anything",
+		initialize: (function(container, options){ if (options && options.initialize) { options.initialize(container)} })
+	 },
+					],
 			// Learn about plugins: https://revealjs.com/plugins/
 			plugins: (window.location.search.match(/print-pdf/gi) ? printPlugins : plugins ) 
 		});

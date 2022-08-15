@@ -418,131 +418,59 @@ https://github.com/miragejs/miragejs
 
 Mirage JS is an API mocking library that lets you build, test and share a complete working JavaScript application without having to rely on any backend services.
 
----
-
-# Demo project
-
-for adding some test cases
-
-https://github.com/yubinTW/todos
-
 --
 
-![](img/2022-04-01-02-05-03.png)
+[Static GET Handler](https://miragejs.com/tutorial/part-1/)
 
---
-
-"My Todos" title should be show
-
-Add-button is disabled on default
-
---
-
-```typescript=
-import { render, screen, waitFor } from '@testing-library/react'
-// ...
-it('should show the title', () => {
-    render(<App />)
-    const todoTitle = screen.getByText('My Todos')
-    expect(todoTitle).toBeInTheDocument()
+```javascript
+createServer({
+  routes() {
+    this.get("/api/reminders", () => ({
+      reminders: [
+        { id: 1, text: "Walk the dog" },
+        { id: 2, text: "Take out the trash" },
+        { id: 3, text: "Work out" },
+      ],
+    }))
+  },
 })
 ```
-
---
-
-```typescript=
-test('Add button is disabled on default', async () => {
-    render(<App />)
-    const addButton = await screen.findByText('Add Todo')
-    expect(addButton).toBeDisabled()
-})
-```
-
---
-
-![](img/2022-04-01-02-06-23.png)
-
-When "Name" and "Description" input are not empty, add-button will be enabled
-
---
-
-```typescript=
-test('Add button is enabled when name and description are not empty', async () => {
-    render(<App />)
-
-    const nameInput = await screen.findByTestId('name')
-    const descriptionInput = await screen.findByTestId('description')
-    await userEvent.type(nameInput, 'Prepare slide')
-    await userEvent.type(descriptionInput, 'slider for javascript testing')
-
-    const addButton = await screen.findByText('Add Todo')
-    expect(addButton).toBeEnabled()
-})
-```
-
---
-
-![](img/2022-04-01-02-08-22.png)
-
-When click add-button, "Name" and "Description" input will be clear, and new todo record will appear
-
---
-
-```typescript=
-test('new todo will appearance, name and description input will be clear when click Add Todo button', async () => {
-    render(<App />)
-
-    const nameInput = await screen.findByTestId('name')
-    const descriptionInput = await screen.findByTestId('description')
-    await userEvent.type(nameInput, 'Prepare slide')
-    await userEvent.type(descriptionInput, 'slider for javascript testing workshop')
-    const addButton = await screen.findByText('Add Todo')
-    await userEvent.click(addButton)
-    const newTodo = await screen.findByText('Prepare slide')
-
-    expect(nameInput).toHaveTextContent('')
-    expect(descriptionInput).toHaveTextContent('')
-    expect(newTodo).toBeInTheDocument()
-})
-```
-
---
-
-![](img/2022-04-01-02-16-08.png)
-
-When click delete button of item0, item0 will disappear
-
---
-
-```typescript=
-it('should be disappear when user click delete button of a todo', async () => {
-    render(<App />)
-
-    const deleteButtons = await screen.findAllByText('Delete')
-    await userEvent.click(deleteButtons[0])
-
-    await waitFor(() => {
-      const item0 = screen.queryByText('item0')
-      expect(item0).toBeNull()
-    })
-})
----
-
-## DIY
-
-Try to add test case for other user scenario
 
 ---
 
-## Reference
+# Cypress
 
-[Testing-Library/CoreAPI/Queries](https://testing-library.com/docs/queries/about)
+--
 
-[Testing-Library/user-event](https://testing-library.com/docs/ecosystem-user-event/#typeelement-text-options)
+Cypress
 
-[React Testing Library 的一些實用的小技巧](https://ithelp.ithome.com.tw/articles/10281691)
+https://github.com/cypress-io/cypress
 
-[javascript-testing-best-practices](https://github.com/yubinTW/javascript-testing-best-practices/blob/master/readme-zh-TW.md)
+Fast, easy and reliable testing for anything that runs in a browser. 
+
+--
+
+[Writing Your First E2E Test ](https://docs.cypress.io/guides/end-to-end-testing/writing-your-first-end-to-end-test)
+
+```javascript
+describe('My First Test', () => {
+  it('Gets, types and asserts', () => {
+    cy.visit('https://example.cypress.io')
+
+    cy.contains('type').click()
+
+    // Should be on a new URL which
+    // includes '/commands/actions'
+    cy.url().should('include', '/commands/actions')
+
+    // Get an input, type into it and verify
+    // that the value has been updated
+    cy.get('.action-email')
+      .type('fake@email.com')
+      .should('have.value', 'fake@email.com')
+  })
+})
+```
 
 ---
 
