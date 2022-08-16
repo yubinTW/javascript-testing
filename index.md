@@ -474,4 +474,11 @@ describe('My First Test', () => {
 
 ---
 
+## Reference
+
+[javascript-testing-best-practices](https://github.com/yubinTW/javascript-testing-best-practices/blob/master/readme-zh-TW.md)
+
+
+---
+
 Thx.
