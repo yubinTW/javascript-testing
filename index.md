@@ -299,11 +299,56 @@ https://create-react-app.dev/docs/running-tests/
 npm run test
 ```
 
+---
+
+# Vitest
+
+Blazing Fast Unit Test Framework
+
+https://vitest.dev/
+
+https://github.com/vitest-dev/vitest
+
 --
 
-# A Jest Test
+# Vitest Install
+
+```
+npm install -D vitest
+npm install -D @vitest/coverage-c8
+```
+
+--
+
+# Vitest Config
+
+create `backend/vitest.config.ts`
+
+```
+import { defineConfig } from 'vitest/config'
+
+export default defineConfig({
+    test: {}
+})
+```
+
+https://vitest.dev/config/
+
+--
+
+# npm script
+
+```
+"test": "vitest run --coverage"
+```
+
+---
+
+# A Test
 
 ```typescript=
+import { describe, test, expect } from 'vitest'
+
 const expected = true
 const actual = false
 
@@ -339,7 +384,7 @@ describe('API test', () => {
 
 ## Expect
 
-https://jestjs.io/docs/expect
+https://vitest.dev/api/expect.html
 
 ```typescript
 expect(1 + 2).toBeLessThan(4)
