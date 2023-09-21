@@ -338,7 +338,7 @@ expect(myValue).toBeGreaterThan(5) // better to read
 <ul>
 <li>End-to-End, simulate user behavior</li>
 <li>Integration, multiple units work together</li>
-<li>Unit, simgle function/component</li>
+<li>Unit, single function/component</li>
 <li>Static, code typo or error</li>
 </ul>
 
@@ -382,7 +382,7 @@ expect(myValue).toBeGreaterThan(5) // better to read
 <li>Basic React component testing
 <ul>
 <li>User interactions</li>
-<li>Conditional redering</li>
+<li>Conditional rendering</li>
 <li>Utils / Hooks</li>
 </ul>
 </li>
@@ -440,15 +440,14 @@ describe('my test suite01', () =&gt; {
             </section>
         
             <section >
-                <pre><code class="language-typescript">
-describe('API test', () =&gt; {    
-    it('should successfully get a pong string', () =&gt; {
-        // Some testing condition
-    })
-    it('test B', () =&gt; {})
-    it('test C', () =&gt; {})
-    it('test D', () =&gt; {})
-})
+                <pre><code class="language-typescript">describe(&quot;API test&quot;, () =&gt; {
+  it(&quot;should successfully get a pong string&quot;, () =&gt; {
+    // Some testing condition
+  });
+  it(&quot;test B&quot;, () =&gt; {});
+  it(&quot;test C&quot;, () =&gt; {});
+  it(&quot;test D&quot;, () =&gt; {});
+});
 </code></pre>
 <p><img src="img/2022-04-01-00-50-41.png" alt=""></p>
 
@@ -457,23 +456,23 @@ describe('API test', () =&gt; {
             <section >
                 <h2>Expect</h2>
 <p><a href="https://jestjs.io/docs/expect">https://jestjs.io/docs/expect</a></p>
-<pre><code class="language-typescript">expect(1 + 2).toBeLessThan(4)
-expect(1 + 2).toBeLessThanOrEqual(3)
-expect(['A', 'B', 'C']).toContain('B')
-expect(1 + 2).not.toBe(4)
+<pre><code class="language-typescript">expect(1 + 2).toBeLessThan(4);
+expect(1 + 2).toBeLessThanOrEqual(3);
+expect([&quot;A&quot;, &quot;B&quot;, &quot;C&quot;]).toContain(&quot;B&quot;);
+expect(1 + 2).not.toBe(4);
 </code></pre>
 
             </section>
         
             <section >
                 <h2>Synchronous</h2>
-<pre><code class="language-typescript">describe('Math test', () =&gt; {
-    it('1 + 2 should be 3', () =&gt; {
-        const a = 1
-        const b = 2
-        expect(a + b).toBe(3)
-    })
-})
+<pre><code class="language-typescript">describe(&quot;Math test&quot;, () =&gt; {
+  it(&quot;1 + 2 should be 3&quot;, () =&gt; {
+    const a = 1;
+    const b = 2;
+    expect(a + b).toBe(3);
+  });
+});
 </code></pre>
 
             </section>
@@ -496,6 +495,45 @@ describe('asynchronous test', () =&gt; {
     it('still get pong', async () =&gt; {
         await expect(pong.getPong()).resolves.toBe('pong')
     })
+})
+</code></pre>
+
+            </section>
+        
+
+    </section>
+    
+
+
+
+    
+    <section>
+        <section >
+            <h1>Property Based Testing</h1>
+<p>Properties, Not Examples</p>
+
+            </section>
+        
+            <section >
+                <h1>Fast Check</h1>
+<p><img src="img/2023-09-21-22-50-04.png" alt=""></p>
+<p><a href="https://fast-check.dev/">https://fast-check.dev/</a></p>
+
+            </section>
+        
+            <section >
+                <pre><code class="language-typescript=">import fc from 'fast-check'
+
+describe('Product service', () =&gt; {
+  describe('Adding new', () =&gt; {
+    //this will run 100 times with different random properties
+    it('Add new product with random yet valid properties, always successful', () =&gt;
+      fc.assert(
+        fc.property(fc.integer(), fc.string(), (id, name) =&gt; {
+          expect(addNewProduct(id, name).status).toEqual('approved')
+        })
+      ))
+  })
 })
 </code></pre>
 
@@ -558,9 +596,9 @@ describe('asynchronous test', () =&gt; {
         { id: 2, text: &quot;Take out the trash&quot; },
         { id: 3, text: &quot;Work out&quot; },
       ],
-    }))
+    }));
   },
-})
+});
 </code></pre>
 
             </section>
@@ -587,23 +625,23 @@ describe('asynchronous test', () =&gt; {
         
             <section >
                 <p><a href="https://docs.cypress.io/guides/end-to-end-testing/writing-your-first-end-to-end-test">Writing Your First E2E Test </a></p>
-<pre><code class="language-javascript">describe('My First Test', () =&gt; {
-  it('Gets, types and asserts', () =&gt; {
-    cy.visit('https://example.cypress.io')
+<pre><code class="language-javascript">describe(&quot;My First Test&quot;, () =&gt; {
+  it(&quot;Gets, types and asserts&quot;, () =&gt; {
+    cy.visit(&quot;https://example.cypress.io&quot;);
 
-    cy.contains('type').click()
+    cy.contains(&quot;type&quot;).click();
 
     // Should be on a new URL which
     // includes '/commands/actions'
-    cy.url().should('include', '/commands/actions')
+    cy.url().should(&quot;include&quot;, &quot;/commands/actions&quot;);
 
     // Get an input, type into it and verify
     // that the value has been updated
-    cy.get('.action-email')
-      .type('fake@email.com')
-      .should('have.value', 'fake@email.com')
-  })
-})
+    cy.get(&quot;.action-email&quot;)
+      .type(&quot;fake@email.com&quot;)
+      .should(&quot;have.value&quot;, &quot;fake@email.com&quot;);
+  });
+});
 </code></pre>
 
             </section>

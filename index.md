@@ -1,12 +1,10 @@
 ---
-
-theme : "night"
+theme: "night"
 transition: "slide"
 highlightTheme: "monokai"
 # logoImg: "logo.png"
 slideNumber: true
 title: "JavaScript Testing"
-
 ---
 
 # JavaScript Testing
@@ -114,7 +112,7 @@ How
 
 --
 
-design a test case to be 
+design a test case to be
 
 <div style="padding: 0 100px;">
 
@@ -242,7 +240,7 @@ it(' should return 200 status code when call /api/todos API', async() => {
 
 - End-to-End, simulate user behavior
 - Integration, multiple units work together
-- Unit, simgle function/component
+- Unit, single function/component
 - Static, code typo or error
 
 --
@@ -267,9 +265,9 @@ https://martinfowler.com/bliki/TestPyramid.html
 2. Edge cases in high value features
 3. Things that are easy to break
 4. Basic React component testing
-    - User interactions
-    - Conditional redering
-    - Utils / Hooks
+   - User interactions
+   - Conditional rendering
+   - Utils / Hooks
 
 ---
 
@@ -322,15 +320,14 @@ describe('my test suite01', () => {
 --
 
 ```typescript
-
-describe('API test', () => {    
-    it('should successfully get a pong string', () => {
-        // Some testing condition
-    })
-    it('test B', () => {})
-    it('test C', () => {})
-    it('test D', () => {})
-})
+describe("API test", () => {
+  it("should successfully get a pong string", () => {
+    // Some testing condition
+  });
+  it("test B", () => {});
+  it("test C", () => {});
+  it("test D", () => {});
+});
 ```
 
 ![](img/2022-04-01-00-50-41.png)
@@ -342,10 +339,10 @@ describe('API test', () => {
 https://jestjs.io/docs/expect
 
 ```typescript
-expect(1 + 2).toBeLessThan(4)
-expect(1 + 2).toBeLessThanOrEqual(3)
-expect(['A', 'B', 'C']).toContain('B')
-expect(1 + 2).not.toBe(4)
+expect(1 + 2).toBeLessThan(4);
+expect(1 + 2).toBeLessThanOrEqual(3);
+expect(["A", "B", "C"]).toContain("B");
+expect(1 + 2).not.toBe(4);
 ```
 
 --
@@ -353,13 +350,13 @@ expect(1 + 2).not.toBe(4)
 ## Synchronous
 
 ```typescript
-describe('Math test', () => {
-    it('1 + 2 should be 3', () => {
-        const a = 1
-        const b = 2
-        expect(a + b).toBe(3)
-    })
-})
+describe("Math test", () => {
+  it("1 + 2 should be 3", () => {
+    const a = 1;
+    const b = 2;
+    expect(a + b).toBe(3);
+  });
+});
 ```
 
 --
@@ -388,6 +385,38 @@ describe('asynchronous test', () => {
 
 ---
 
+# Property Based Testing
+
+Properties, Not Examples
+
+--
+
+# Fast Check
+
+![](img/2023-09-21-22-50-04.png)
+
+https://fast-check.dev/
+
+--
+
+```typescript=
+import fc from 'fast-check'
+
+describe('Product service', () => {
+  describe('Adding new', () => {
+    //this will run 100 times with different random properties
+    it('Add new product with random yet valid properties, always successful', () =>
+      fc.assert(
+        fc.property(fc.integer(), fc.string(), (id, name) => {
+          expect(addNewProduct(id, name).status).toEqual('approved')
+        })
+      ))
+  })
+})
+```
+
+---
+
 # Testing Library
 
 --
@@ -396,7 +425,7 @@ describe('asynchronous test', () => {
 
 https://github.com/testing-library/react-testing-library
 
-🐐 Simple and complete React DOM testing utilities that encourage good testing practices. 
+🐐 Simple and complete React DOM testing utilities that encourage good testing practices.
 
 --
 
@@ -431,9 +460,9 @@ createServer({
         { id: 2, text: "Take out the trash" },
         { id: 3, text: "Work out" },
       ],
-    }))
+    }));
   },
-})
+});
 ```
 
 ---
@@ -446,30 +475,30 @@ Cypress
 
 https://github.com/cypress-io/cypress
 
-Fast, easy and reliable testing for anything that runs in a browser. 
+Fast, easy and reliable testing for anything that runs in a browser.
 
 --
 
 [Writing Your First E2E Test ](https://docs.cypress.io/guides/end-to-end-testing/writing-your-first-end-to-end-test)
 
 ```javascript
-describe('My First Test', () => {
-  it('Gets, types and asserts', () => {
-    cy.visit('https://example.cypress.io')
+describe("My First Test", () => {
+  it("Gets, types and asserts", () => {
+    cy.visit("https://example.cypress.io");
 
-    cy.contains('type').click()
+    cy.contains("type").click();
 
     // Should be on a new URL which
     // includes '/commands/actions'
-    cy.url().should('include', '/commands/actions')
+    cy.url().should("include", "/commands/actions");
 
     // Get an input, type into it and verify
     // that the value has been updated
-    cy.get('.action-email')
-      .type('fake@email.com')
-      .should('have.value', 'fake@email.com')
-  })
-})
+    cy.get(".action-email")
+      .type("fake@email.com")
+      .should("have.value", "fake@email.com");
+  });
+});
 ```
 
 ---
@@ -477,7 +506,6 @@ describe('My First Test', () => {
 ## Reference
 
 [javascript-testing-best-practices](https://github.com/yubinTW/javascript-testing-best-practices/blob/master/readme-zh-TW.md)
-
 
 ---
 
