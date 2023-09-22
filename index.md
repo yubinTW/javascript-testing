@@ -385,6 +385,138 @@ describe('asynchronous test', () => {
 
 ---
 
+# Vitest
+
+Blazing Fast Unit Test Framework
+
+https://vitest.dev/
+
+https://github.com/vitest-dev/vitest
+
+--
+
+## Vitest Install
+
+```
+npm install -D vitest
+npm install -D @vitest/coverage-c8
+```
+
+--
+
+## Vitest Config
+
+create `backend/vitest.config.ts`
+
+```
+import { defineConfig } from 'vitest/config'
+
+export default defineConfig({
+    test: {}
+})
+```
+
+https://vitest.dev/config/
+
+--
+
+## npm script
+
+```
+"test": "vitest run --coverage"
+```
+
+--
+
+## A Test
+
+```typescript=
+import { describe, test, expect } from 'vitest'
+
+const expected = true
+const actual = false
+
+describe('my test suite01', () => {
+    test('it works', () => {
+        expect(actual).toBe(expected)
+    })
+})
+
+```
+
+--
+
+![](img/2022-04-01-00-47-50.png)
+
+--
+
+```typescript
+
+describe('API test', () => {    
+    it('should successfully get a pong string', () => {
+        // Some testing condition
+    })
+    it('test B', () => {})
+    it('test C', () => {})
+    it('test D', () => {})
+})
+```
+
+![](img/2022-04-01-00-50-41.png)
+
+--
+
+## Expect
+
+https://vitest.dev/api/expect.html
+
+```typescript
+expect(1 + 2).toBeLessThan(4)
+expect(1 + 2).toBeLessThanOrEqual(3)
+expect(['A', 'B', 'C']).toContain('B')
+expect(1 + 2).not.toBe(4)
+```
+
+--
+
+## Synchronous
+
+```typescript
+describe('Math test', () => {
+    it('1 + 2 should be 3', () => {
+        const a = 1
+        const b = 2
+        expect(a + b).toBe(3)
+    })
+})
+```
+
+--
+
+## Asynchronous
+
+```typescript
+// pong.ts
+async getPong(): Promise<string> {
+    return new Promise((resolve) => {
+        resolve('pong')
+    })
+}
+
+// pong.spec.ts
+describe('asynchronous test', () => {
+    it('get pong', async () => {
+        const result = await pong.getPong()
+        expect(result).toBe('pong')
+    })
+    it('still get pong', async () => {
+        await expect(pong.getPong()).resolves.toBe('pong')
+    })
+})
+```
+
+---
+
 # Property Based Testing
 
 Properties, Not Examples

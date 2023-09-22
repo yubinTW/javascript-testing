@@ -509,6 +509,134 @@ describe('asynchronous test', () =&gt; {
     
     <section>
         <section >
+            <h1>Vitest</h1>
+<p>Blazing Fast Unit Test Framework</p>
+<p><a href="https://vitest.dev/">https://vitest.dev/</a></p>
+<p><a href="https://github.com/vitest-dev/vitest">https://github.com/vitest-dev/vitest</a></p>
+
+            </section>
+        
+            <section >
+                <h2>Vitest Install</h2>
+<pre><code>npm install -D vitest
+npm install -D @vitest/coverage-c8
+</code></pre>
+
+            </section>
+        
+            <section >
+                <h2>Vitest Config</h2>
+<p>create <code>backend/vitest.config.ts</code></p>
+<pre><code>import { defineConfig } from 'vitest/config'
+
+export default defineConfig({
+    test: {}
+})
+</code></pre>
+<p><a href="https://vitest.dev/config/">https://vitest.dev/config/</a></p>
+
+            </section>
+        
+            <section >
+                <h2>npm script</h2>
+<pre><code>&quot;test&quot;: &quot;vitest run --coverage&quot;
+</code></pre>
+
+            </section>
+        
+            <section >
+                <h2>A Test</h2>
+<pre><code class="language-typescript=">import { describe, test, expect } from 'vitest'
+
+const expected = true
+const actual = false
+
+describe('my test suite01', () =&gt; {
+    test('it works', () =&gt; {
+        expect(actual).toBe(expected)
+    })
+})
+
+</code></pre>
+
+            </section>
+        
+            <section >
+                <p><img src="img/2022-04-01-00-47-50.png" alt=""></p>
+
+            </section>
+        
+            <section >
+                <pre><code class="language-typescript">
+describe('API test', () =&gt; {    
+    it('should successfully get a pong string', () =&gt; {
+        // Some testing condition
+    })
+    it('test B', () =&gt; {})
+    it('test C', () =&gt; {})
+    it('test D', () =&gt; {})
+})
+</code></pre>
+<p><img src="img/2022-04-01-00-50-41.png" alt=""></p>
+
+            </section>
+        
+            <section >
+                <h2>Expect</h2>
+<p><a href="https://vitest.dev/api/expect.html">https://vitest.dev/api/expect.html</a></p>
+<pre><code class="language-typescript">expect(1 + 2).toBeLessThan(4)
+expect(1 + 2).toBeLessThanOrEqual(3)
+expect(['A', 'B', 'C']).toContain('B')
+expect(1 + 2).not.toBe(4)
+</code></pre>
+
+            </section>
+        
+            <section >
+                <h2>Synchronous</h2>
+<pre><code class="language-typescript">describe('Math test', () =&gt; {
+    it('1 + 2 should be 3', () =&gt; {
+        const a = 1
+        const b = 2
+        expect(a + b).toBe(3)
+    })
+})
+</code></pre>
+
+            </section>
+        
+            <section >
+                <h2>Asynchronous</h2>
+<pre><code class="language-typescript">// pong.ts
+async getPong(): Promise&lt;string&gt; {
+    return new Promise((resolve) =&gt; {
+        resolve('pong')
+    })
+}
+
+// pong.spec.ts
+describe('asynchronous test', () =&gt; {
+    it('get pong', async () =&gt; {
+        const result = await pong.getPong()
+        expect(result).toBe('pong')
+    })
+    it('still get pong', async () =&gt; {
+        await expect(pong.getPong()).resolves.toBe('pong')
+    })
+})
+</code></pre>
+
+            </section>
+        
+
+    </section>
+    
+
+
+
+    
+    <section>
+        <section >
             <h1>Property Based Testing</h1>
 <p>Properties, Not Examples</p>
 
