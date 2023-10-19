@@ -664,6 +664,28 @@ describe('Product service', () =&gt; {
 
             </section>
         
+            <section >
+                <pre><code>import {render, screen} from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
+import Fetch from './fetch'
+
+test('loads and displays greeting', async () =&gt; {
+  // arrange
+  render(&lt;Fetch url=&quot;/greeting&quot; /&gt;)
+
+  // act
+  await userEvent.click(screen.getByText('Load Greeting'))
+  await screen.findByRole('heading')
+
+  // assert
+  expect(screen.getByRole('heading')).toHaveTextContent('hello there')
+  expect(screen.getByRole('button')).toBeDisabled()
+})
+</code></pre>
+<p><a href="https://testing-library.com/docs/react-testing-library/example-intro/#full-example">https://testing-library.com/docs/react-testing-library/example-intro/#full-example</a></p>
+
+            </section>
+        
 
     </section>
     

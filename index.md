@@ -552,6 +552,29 @@ https://github.com/testing-library/user-event
 
 🐕 Simulate user events
 
+--
+
+```
+import {render, screen} from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
+import Fetch from './fetch'
+
+test('loads and displays greeting', async () => {
+  // arrange
+  render(<Fetch url="/greeting" />)
+
+  // act
+  await userEvent.click(screen.getByText('Load Greeting'))
+  await screen.findByRole('heading')
+
+  // assert
+  expect(screen.getByRole('heading')).toHaveTextContent('hello there')
+  expect(screen.getByRole('button')).toBeDisabled()
+})
+```
+
+https://testing-library.com/docs/react-testing-library/example-intro/#full-example
+
 ---
 
 # Mirage
