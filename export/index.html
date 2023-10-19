@@ -370,35 +370,6 @@ expect(myValue).toBeGreaterThan(5) // better to read
     
     <section>
         <section >
-            <h1>Priority</h1>
-
-            </section>
-        
-            <section >
-                <ol>
-<li>High value features</li>
-<li>Edge cases in high value features</li>
-<li>Things that are easy to break</li>
-<li>Basic React component testing
-<ul>
-<li>User interactions</li>
-<li>Conditional rendering</li>
-<li>Utils / Hooks</li>
-</ul>
-</li>
-</ol>
-
-            </section>
-        
-
-    </section>
-    
-
-
-
-    
-    <section>
-        <section >
             <h1>Jest</h1>
 <p>JavaScript testing framework</p>
 <p><a href="https://github.com/facebook/jest">https://github.com/facebook/jest</a></p>
@@ -567,15 +538,14 @@ describe('my test suite01', () =&gt; {
             </section>
         
             <section >
-                <pre><code class="language-typescript">
-describe('API test', () =&gt; {    
-    it('should successfully get a pong string', () =&gt; {
-        // Some testing condition
-    })
-    it('test B', () =&gt; {})
-    it('test C', () =&gt; {})
-    it('test D', () =&gt; {})
-})
+                <pre><code class="language-typescript">describe(&quot;API test&quot;, () =&gt; {
+  it(&quot;should successfully get a pong string&quot;, () =&gt; {
+    // Some testing condition
+  });
+  it(&quot;test B&quot;, () =&gt; {});
+  it(&quot;test C&quot;, () =&gt; {});
+  it(&quot;test D&quot;, () =&gt; {});
+});
 </code></pre>
 <p><img src="img/2022-04-01-00-50-41.png" alt=""></p>
 
@@ -584,23 +554,23 @@ describe('API test', () =&gt; {
             <section >
                 <h2>Expect</h2>
 <p><a href="https://vitest.dev/api/expect.html">https://vitest.dev/api/expect.html</a></p>
-<pre><code class="language-typescript">expect(1 + 2).toBeLessThan(4)
-expect(1 + 2).toBeLessThanOrEqual(3)
-expect(['A', 'B', 'C']).toContain('B')
-expect(1 + 2).not.toBe(4)
+<pre><code class="language-typescript">expect(1 + 2).toBeLessThan(4);
+expect(1 + 2).toBeLessThanOrEqual(3);
+expect([&quot;A&quot;, &quot;B&quot;, &quot;C&quot;]).toContain(&quot;B&quot;);
+expect(1 + 2).not.toBe(4);
 </code></pre>
 
             </section>
         
             <section >
                 <h2>Synchronous</h2>
-<pre><code class="language-typescript">describe('Math test', () =&gt; {
-    it('1 + 2 should be 3', () =&gt; {
-        const a = 1
-        const b = 2
-        expect(a + b).toBe(3)
-    })
-})
+<pre><code class="language-typescript">describe(&quot;Math test&quot;, () =&gt; {
+  it(&quot;1 + 2 should be 3&quot;, () =&gt; {
+    const a = 1;
+    const b = 2;
+    expect(a + b).toBe(3);
+  });
+});
 </code></pre>
 
             </section>

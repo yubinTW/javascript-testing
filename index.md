@@ -257,20 +257,6 @@ https://martinfowler.com/bliki/TestPyramid.html
 
 ---
 
-# Priority
-
---
-
-1. High value features
-2. Edge cases in high value features
-3. Things that are easy to break
-4. Basic React component testing
-   - User interactions
-   - Conditional rendering
-   - Utils / Hooks
-
----
-
 # Jest
 
 JavaScript testing framework
@@ -451,15 +437,14 @@ describe('my test suite01', () => {
 --
 
 ```typescript
-
-describe('API test', () => {    
-    it('should successfully get a pong string', () => {
-        // Some testing condition
-    })
-    it('test B', () => {})
-    it('test C', () => {})
-    it('test D', () => {})
-})
+describe("API test", () => {
+  it("should successfully get a pong string", () => {
+    // Some testing condition
+  });
+  it("test B", () => {});
+  it("test C", () => {});
+  it("test D", () => {});
+});
 ```
 
 ![](img/2022-04-01-00-50-41.png)
@@ -471,10 +456,10 @@ describe('API test', () => {
 https://vitest.dev/api/expect.html
 
 ```typescript
-expect(1 + 2).toBeLessThan(4)
-expect(1 + 2).toBeLessThanOrEqual(3)
-expect(['A', 'B', 'C']).toContain('B')
-expect(1 + 2).not.toBe(4)
+expect(1 + 2).toBeLessThan(4);
+expect(1 + 2).toBeLessThanOrEqual(3);
+expect(["A", "B", "C"]).toContain("B");
+expect(1 + 2).not.toBe(4);
 ```
 
 --
@@ -482,13 +467,13 @@ expect(1 + 2).not.toBe(4)
 ## Synchronous
 
 ```typescript
-describe('Math test', () => {
-    it('1 + 2 should be 3', () => {
-        const a = 1
-        const b = 2
-        expect(a + b).toBe(3)
-    })
-})
+describe("Math test", () => {
+  it("1 + 2 should be 3", () => {
+    const a = 1;
+    const b = 2;
+    expect(a + b).toBe(3);
+  });
+});
 ```
 
 --
