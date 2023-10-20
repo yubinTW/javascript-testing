@@ -672,17 +672,17 @@ describe("My First Test", () => {
 
 ## Test Report
 
-![](test-report.jpg)
+![](img/test-report.jpg)
 
 --
 
 # Coverage Report
 
-![](coverage-report.jpg)
+![](img/coverage-report.jpg)
 
 ---
 
-![](mock-test-pattern.jpg)
+![](img/mock-test-pattern.jpg)
 
 ---
 
