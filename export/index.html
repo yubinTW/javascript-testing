@@ -646,6 +646,39 @@ describe('Product service', () =&gt; {
     
     <section>
         <section >
+            <h1>Snapshop Testing</h1>
+
+            </section>
+        
+            <section >
+                <p>Make sure the output of your functions does not change unexpectedly.</p>
+
+            </section>
+        
+            <section >
+                <pre><code class="language-typescript=">import { render } from '@testing-library/react'
+import YourComponent from 'YourComponent'
+
+it('The component UI should not change', () =&gt; {
+
+  const comp = render(&lt;YourComponent /&gt;)
+
+  expect(comp).toMatchSnapshot()
+
+})
+</code></pre>
+
+            </section>
+        
+
+    </section>
+    
+
+
+
+    
+    <section>
+        <section >
             <h1>Testing Library</h1>
 
             </section>

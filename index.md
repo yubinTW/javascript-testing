@@ -534,6 +534,29 @@ describe('Product service', () => {
 
 ---
 
+# Snapshop Testing
+
+--
+
+Make sure the output of your functions does not change unexpectedly.
+
+--
+
+```typescript=
+import { render } from '@testing-library/react'
+import YourComponent from 'YourComponent'
+
+it('The component UI should not change', () => {
+
+  const comp = render(<YourComponent />)
+
+  expect(comp).toMatchSnapshot()
+
+})
+```
+
+---
+
 # Testing Library
 
 --
