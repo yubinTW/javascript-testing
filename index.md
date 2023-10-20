@@ -666,6 +666,26 @@ describe("My First Test", () => {
 
 ---
 
+# Report
+
+--
+
+## Test Report
+
+![](test-report.jpg)
+
+--
+
+# Coverage Report
+
+![](coverage-report.jpg)
+
+---
+
+![](mock-test-pattern.jpg)
+
+---
+
 ## Reference
 
 [javascript-testing-best-practices](https://github.com/yubinTW/javascript-testing-best-practices/blob/master/readme-zh-TW.md)
