@@ -534,7 +534,7 @@ describe('Product service', () => {
 
 ---
 
-# Snapshop Testing
+# Snapshot Testing
 
 --
 
